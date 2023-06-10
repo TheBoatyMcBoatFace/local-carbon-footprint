@@ -1,3 +1,11 @@
+"""
+logger.py
+
+This module provides configuration for the logging system.
+
+Author: TheBoatyMcBoatFace
+"""
+
 import logging
 import time
 from logging.handlers import TimedRotatingFileHandler
@@ -11,7 +19,7 @@ level = 'DEBUG'
 logger = logging.getLogger(__name__)
 
 # the handler determines where the logs go: stdout/file
-shell_handler = RichHandler()
+shell_handler = shell_handler = RichHandler(markup=True)
 filename = f"logs/{logger_name}-{time.strftime('%Y-%m-%d')}.log"
 file_handler = TimedRotatingFileHandler(filename=filename, when="midnight", interval=1, backupCount=30)
 
@@ -35,6 +43,11 @@ logger.addHandler(file_handler)
 
 
 def configure_logger():
+    """
+    Reconfigure the logger.
+
+    This function reconfigures the logger with the predefined settings.
+    """
     global logger
     logger = logging.getLogger(logger_name)
 
