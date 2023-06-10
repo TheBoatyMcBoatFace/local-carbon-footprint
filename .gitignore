@@ -3,3 +3,4 @@ venv/*
 .nova
 db/carbon_footprint.sqlite
 __pycache__*
+logs*

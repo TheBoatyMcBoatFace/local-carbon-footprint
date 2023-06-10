@@ -1,3 +1,1 @@
-from .backend import (
-    logger
-)
+from .backend import logger
