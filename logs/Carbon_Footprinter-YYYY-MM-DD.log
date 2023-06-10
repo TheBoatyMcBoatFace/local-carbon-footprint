@@ -1,0 +1,5 @@
+DEBUG 2023-06-09 22:40:56,901 [logger.py:<module>:43] This is a debug message
+INFO 2023-06-09 22:40:56,906 [logger.py:<module>:44] This is an info message
+WARNING 2023-06-09 22:40:56,907 [logger.py:<module>:45] This is a warning message
+ERROR 2023-06-09 22:40:56,909 [logger.py:<module>:46] This is an error message
+CRITICAL 2023-06-09 22:40:56,910 [logger.py:<module>:47] This is a critical message
