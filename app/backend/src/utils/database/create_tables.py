@@ -13,7 +13,7 @@ from pathlib import Path
 # Add the project root directory to the module search path
 sys.path.append(str(Path(__file__).resolve().parents[5]))
 
-from footprinter.backend.src.utils.logger import logger
+from app.backend.src.utils.logger import logger
 
 
 def create_tables():

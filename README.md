@@ -1,51 +1,48 @@
-/Users/Shared/GitHub/Orgs/CivicActions/local-carbon-footprint
+# Local Carbon Footprinter
+Local Carbon Footprinter is light-weight tool designed to monitor machine usage and calculate its carbon impact. This tool is currently under **active development**, with the intention to output the raw metrics to a local flask endpoint (Phase I), integrate with the [Cloud Carbon Footprint](https://github.com/cloud-carbon-footprint/cloud-carbon-footprint) tool as an [On-Premise data source](https://www.cloudcarbonfootprint.org/docs/on-premise). (Phase II), and finally, to create a user-friendly desktop application (Phase III).
 
-https://www.cloudcarbonfootprint.org/docs/on-premise
+**Please note: This tool is currently in Phase I.**
 
-Docker Vars
+## Getting Started
+Make sure you've got docker...
 
-MachineType
-    - server
-    - laptop
-    - desktop
+**TODO** Dockerfile...
+**TODO** Refactor the thing to use Flask Blueprints & not be beautiful mind layout
 
-MachineName
-    - Default: Physical Host Name
-    - Override with custom name
+Deploy the Local Carbon Footprinter container using the following command:
+```dockerfile
+docker pull theboatymcboatface/local-carbon-footprinter:latest
+```
 
-/Users/Shared/GitHub/Orgs/CivicActions/local-carbon-footprint/db/carbon_footprint.sqlite
+### Docker Vars
+| Variable | Description | Default | Options |
+|-----------|-----------|-----------|-----------|
+| LOG_LEVEL     | How many logs do you want?     | INFO | DEBUG,INFO,WARNING,ERROR,CRITICAL |
+| APP_PORT | Which port should the web app use? | 3000 | Any Port Number |
+| **TODO** MachineType | What type of machine is this? | server | server, laptop, desktop |
+| **TODO** MachineName | Name of unique machine | Physical Host Name | Whatever you want |
 
 
+### Volumes & Data
+If a route is not defined or a volume is not specified, a default volume will be created. The SQLite database 'db/carbon_footprint.sqlite' storing the footprint data does not require SSDs or any specialized storage infrastructure.
 
-import time
-import sqlite3
-import psutil
-from .utils import logger
 
-# Connect to SQLite database
-conn = sqlite3.connect('db/carbon_footprint.sqlite')
-c = conn.cursor()
+## Using the Thing
+**TODO** Once local dev complete
 
-# Create table if not exists
-c.execute('''
-    CREATE TABLE IF NOT EXISTS cpu_utilization (
-        timestamp TEXT,
-        utilization REAL
-    )
-''')
 
-while True:
-    # Get current CPU utilization
-    utilization = psutil.cpu_percent()
+## Contributing
+Interested in contributing? Fantastic! I'm not quite there yet...
 
-    # Get current timestamp
-    timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
+**TODO**
+- [ ] Github Action Automations
+- [ ] Good First Tasks
+- [ ] Github Project
+- [ ] Protect Branches
+- [ ] Dependabot
+- [ ] Supply chain things...
 
-    # Insert into database
-    c.execute('INSERT INTO cpu_utilization VALUES (?, ?)', (timestamp, utilization))
+## License
+This project is open source. Contributions, suggestions, and improvements are welcome.
 
-    # Commit the transaction
-    conn.commit()
-
-    # Sleep for 60 seconds
-    time.sleep(60)
+Open Source FTW. [GPL-3](LICENSE)
