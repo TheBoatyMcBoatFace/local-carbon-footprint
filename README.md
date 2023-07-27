@@ -1,6 +1,8 @@
 # Local Carbon Footprinter
 Local Carbon Footprinter is light-weight tool designed to monitor machine usage and calculate its carbon impact. This tool is currently under **active development**, with the intention to output the raw metrics to a local flask endpoint (Phase I), integrate with the [Cloud Carbon Footprint](https://github.com/cloud-carbon-footprint/cloud-carbon-footprint) tool as an [On-Premise data source](https://www.cloudcarbonfootprint.org/docs/on-premise). (Phase II), and finally, to create a user-friendly desktop application (Phase III).
 
+**Phase IV:** integrate as a module in the [GovA11y](https://github.com/GovA11y) & [Equalify](https://github.com/EqualifyApp) Ecosystems.
+
 **Please note: This tool is currently in Phase I.**
 
 ## Getting Started
